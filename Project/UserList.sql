@@ -22,6 +22,10 @@ SET time_zone = "+00:00";
 -- Base de données :  `jeeproject`
 --
 
+CREATE DATABASE jeeproject;
+
+USE jeeproject;
+
 -- --------------------------------------------------------
 
 --
@@ -30,14 +34,22 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `UserList`;
 CREATE TABLE IF NOT EXISTS `userlist` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `ID` int(3) NOT NULL AUTO_INCREMENT,
   `FName` varchar(20) NOT NULL,
   `LName` varchar(20) NOT NULL,
   `Login` varchar(25) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='jeeproject';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='jeeproject';
 COMMIT;
+
+--
+-- AUTO_INCREMENT pour la table `userlist`
+--
+ALTER TABLE `userlist`
+  MODIFY `ID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+

@@ -4,17 +4,9 @@
         <servlet-name>addServlet</servlet-name>
         <servlet-class>servlets.addServlet</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>JDBCServlet</servlet-name>
-        <servlet-class>servlets.JDBCServlet</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>addServlet</servlet-name>
-        <url-pattern>/add</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>JDBCServlet</servlet-name>
-        <url-pattern>/JDBCServlet</url-pattern>
+        <url-pattern>/addServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

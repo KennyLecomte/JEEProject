@@ -34,13 +34,18 @@ public class addServlet extends HttpServlet {
         
         jdbcClass bdd = new jdbcClass();
         
-        for(int i=0;i<5;i++)
+        
+        
+        for(int i=1;i<5;i++)
         {
-            String firstName = request.getParameter("firstName"+i);
-            String lastName = request.getParameter("lastName"+i);
-            String userName = request.getParameter("userName"+i);
-            
-            bdd.addUser(request,firstName,lastName,userName);
+            if(!request.getParameter("firstName"+i).equals("") && !request.getParameter("lastName"+i).equals("") && !request.getParameter("userName"+i).equals(""))
+            {
+                String firstName = request.getParameter("firstName"+i);
+                String lastName = request.getParameter("lastName"+i);
+                String userName = request.getParameter("userName"+i);
+
+                bdd.addUser(request,firstName,lastName,userName);
+            }
         }
     }
 

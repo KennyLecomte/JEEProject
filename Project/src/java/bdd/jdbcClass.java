@@ -37,8 +37,8 @@ public class jdbcClass
         {
             connexion = DriverManager.getConnection(url, utilisateur, motDePasse);
             statement = connexion.createStatement();
-            statement.executeUpdate("INSERT INTO userlist VALUES("+firstName+","+lastName+","+userName+");");
-            System.out.println("Requête \"INSERT INTO userlist VALUES(\""+firstName+","+lastName+","+userName+");\" effectuée !");
+            statement.executeUpdate("INSERT INTO userlist(fname,lname,login) VALUES(\""+firstName+"\",\""+lastName+"\",\""+userName+"\");");
+            System.out.println("Requête \"INSERT INTO userlist(fname,lname,login) VALUES(\""+firstName+","+lastName+","+userName+");\" effectuée !");
         } 
         catch (SQLException e) 
         {
