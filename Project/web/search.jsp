@@ -9,9 +9,15 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Search</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Search for user(s)</h1>		  
+            <div>
+                <form action="http://localhost:8080/Project/searchServlet" method="POST">
+                    <input type="text" name="search" placeholder="user...">
+                    <input type="submit" name="searchbtn" value="Search">
+                </form>
+            </div>
     </body>
 </html>
