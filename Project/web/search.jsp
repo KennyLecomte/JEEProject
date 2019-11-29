@@ -11,8 +11,13 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Search</title>
     </head>
+    <style> 
+         div, h1 {
+             text-align: center;
+         }
+    </style>
     <body>
-        <h1>Search for user(s)</h1>		  
+        <h1>User Search</h1>		  
             <div>
                 <form action="http://localhost:8080/Project/searchServlet" method="POST">
                     <input type="text" name="search" placeholder="user...">

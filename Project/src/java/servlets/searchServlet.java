@@ -36,20 +36,13 @@ public class searchServlet extends HttpServlet {
         
         jdbcClass bdd = new jdbcClass();
                
-               
-                
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet searchServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet searchServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+        String search = request.getParameter("search");
+        
+        ArrayList<String> RFC = bdd.searchUser(request, search);
+        request.setAttribute("Result",RFC);
+        request.setAttribute("Size",(RFC.size()/3));   
+        request.getRequestDispatcher("result.jsp").forward(request, response);
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

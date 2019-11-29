@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -87,24 +88,32 @@ public class jdbcClass
         String motDePasse = "";
         Connection connexion = null;
         Statement statement = null;
+        
+       
+        
         try 
         {
+            System.out.println("yo");
             connexion = DriverManager.getConnection(url, utilisateur, motDePasse);
             statement = connexion.createStatement();
             resultat=statement.executeQuery("SELECT * FROM userlist WHERE (FName LIKE '"+search+"' OR LName LIKE '"+search+"' OR Login LIKE '"+search+"')");
             System.out.println("Requête \"SELECT * FROM userlist WHERE '"+search+"'");
             
-            
+
+            ResultSetMetaData rsmd = resultat.getMetaData();
+            int columnsNumber = rsmd.getColumnCount();
+
             while ( resultat.next() ) {
-            String ID = Integer.toString(resultat.getInt( "ID" ));
-            String FName = resultat.getString( "FName" );
-            String LName = resultat.getString( "Lname" );
-            String Login = resultat.getString( "Login" );
-            
-            resultat2.add(ID);
-            resultat2.add(FName);
-            resultat2.add(LName);
-            resultat2.add(Login);    
+                for (int i = 1; i <= columnsNumber; i+=4) {  
+            //resultat2.add(Integer.toString(resultat.getInt(i)));
+            //System.out.println("Adding "+resultat2.add(Integer.toString(resultat.getInt(i)))+" to Array");
+            resultat2.add(resultat.getString(i+1));
+            System.out.println("Adding "+resultat.getString(i+1)+" to Array "+resultat2.size()+" ");
+            resultat2.add(resultat.getString(i+2)); 
+            System.out.println("Adding "+resultat.getString(i+2)+" to Array "+resultat2.size()+" ");
+            resultat2.add(resultat.getString(i+3)); 
+            System.out.println("Adding "+resultat.getString(i+3)+" to Array "+resultat2.size()+" ");
+                }
         }
             
         } 
