@@ -35,7 +35,7 @@
     <body>
         <center>
             <h1>Input new user(s)</h1>
-            <form action="http://localhost:8080/Project/addServlet" method="post">
+            <form action="http://localhost:8888/Project/addServlet" method="post">
                 <table>
                     <tr>
                         <th>First name</th>

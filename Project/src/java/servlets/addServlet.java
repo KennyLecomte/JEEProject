@@ -8,6 +8,7 @@ package servlets;
 import bdd.jdbcClass;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -34,7 +35,9 @@ public class addServlet extends HttpServlet {
         
         jdbcClass bdd = new jdbcClass();
         
+        ArrayList<String> data = new ArrayList<>();
         
+        int size=0;
         
         for(int i=1;i<5;i++)
         {
@@ -44,9 +47,16 @@ public class addServlet extends HttpServlet {
                 String lastName = request.getParameter("lastName"+i);
                 String userName = request.getParameter("userName"+i);
 
+                data.add(firstName);
+                data.add(lastName);
+                data.add(userName);
                 bdd.addUser(request,firstName,lastName,userName);
+                size++;
             }
         }
+        request.setAttribute("size",size);
+        request.setAttribute("data",data);   
+        request.getRequestDispatcher("resultAdd.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
