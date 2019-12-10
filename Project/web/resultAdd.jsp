@@ -9,14 +9,15 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Results</title>
+        <title>Added User List</title>
     </head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <style> 
         div, h1 {
             text-align: center;
         }
 
-        td, th {
+        td, th, a, tr {
            border: 1px solid #dddddd;
            text-align: center;
         }
@@ -27,12 +28,12 @@
         }
     </style>
     <body>
-        <h1>Results</h1>
-        <table>
+        <h1>Added User List</h1>
+        <table class="table table-hover">
             <tr>
                 <th><b>First Name</b></th>
                 <th><b>Last Name</b></th>
-                <th><b>Login</b></th>
+                <th><b>Username</b></th>
             </tr>
             <c:forEach var="i" begin="0" end="${(size*3)-1}" step="3" >
                 <tr> 
@@ -42,5 +43,13 @@
                 </tr>
             </c:forEach>
         </table>
+        <div>
+        <a href="/Project/index.jsp">
+                    <input class="btn btn-primary" value="Add more">
+        </a>
+        <a href="/Project/search.jsp">
+                    <input class="btn btn-primary" value="Search User">
+        </a>
+        </div>
     </body>
 </html>
