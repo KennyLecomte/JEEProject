@@ -70,7 +70,10 @@ public class jdbcClass
             }
         }
     }
-    private ArrayList<String> resultat2 = new ArrayList<>();
+    private ArrayList<String> ResPrenom = new ArrayList<>();
+    private ArrayList<String> ResNom = new ArrayList<>();
+    private ArrayList<String> ResLogin = new ArrayList<>();
+    private ArrayList<String> Res = new ArrayList<>();
     public ArrayList<String> searchUser(HttpServletRequest request, String search) {
         
         try 
@@ -107,13 +110,16 @@ public class jdbcClass
                 for (int i = 1; i <= columnsNumber; i+=4) {  
             //resultat2.add(Integer.toString(resultat.getInt(i)));
             //System.out.println("Adding "+resultat2.add(Integer.toString(resultat.getInt(i)))+" to Array");
-            resultat2.add(resultat.getString(i+1));
-            System.out.println("Adding "+resultat.getString(i+1)+" to Array "+resultat2.size()+" ");
-            resultat2.add(resultat.getString(i+2)); 
-            System.out.println("Adding "+resultat.getString(i+2)+" to Array "+resultat2.size()+" ");
-            resultat2.add(resultat.getString(i+3)); 
-            System.out.println("Adding "+resultat.getString(i+3)+" to Array "+resultat2.size()+" ");
+            Res.add(resultat.getString(i+1));
+            System.out.println("Adding "+resultat.getString(i+1)+" to Array "+ResPrenom.size()+" ");
+            Res.add(resultat.getString(i+2)); 
+            System.out.println("Adding "+resultat.getString(i+2)+" to Array "+ResNom.size()+" ");
+            Res.add(resultat.getString(i+3)); 
+            System.out.println("Adding "+resultat.getString(i+3)+" to Array "+ResLogin.size()+" ");
                 }
+            //Res.add(ResPrenom);
+            //Res.add(ResNom);
+            //Res.add(ResLogin);
         }
             
         } 
@@ -141,6 +147,6 @@ public class jdbcClass
                 catch (SQLException ignore) {}
             }
         }
-        return resultat2;
+        return Res;
     }
 }

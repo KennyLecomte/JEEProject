@@ -34,15 +34,12 @@
                 <th><b>Last Name</b></th>
                 <th><b>Login</b></th>
             </tr>
-            <%! int count=0; %>
-            <c:forEach var="i" begin="0" end="${Size}" step="1" >
+            <c:forEach var="i" begin="0" end="${Size-1}" step="3" >
                 <tr> 
-                    
-                    <c:forEach var="j" begin="0" end="2" step="1">
-                        <td><c:out value="${Result.get(j)}" /></td>
-                     
-                    </c:forEach>
-                       
+
+                        <td><c:out value="${Result.get(i)}" /></td>
+                        <td><c:out value="${Result.get(i+1)}" /></td>
+                        <td><c:out value="${Result.get(i+2)}" /></td>    
                 </tr>
             </c:forEach>
         </table>

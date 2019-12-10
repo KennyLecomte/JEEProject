@@ -33,14 +33,18 @@ public class searchServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+        ArrayList<String> RFC = new ArrayList<>();
         jdbcClass bdd = new jdbcClass();
                
         String search = request.getParameter("search");
         
-        ArrayList<String> RFC = bdd.searchUser(request, search);
+        
+        
+        RFC = bdd.searchUser(request, search);
+        
+        System.out.println(RFC.size());
         request.setAttribute("Result",RFC);
-        request.setAttribute("Size",(RFC.size()/3));   
+        request.setAttribute("Size",(RFC.size()));   
         request.getRequestDispatcher("result.jsp").forward(request, response);
         
     }
