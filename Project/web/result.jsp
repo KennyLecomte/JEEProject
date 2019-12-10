@@ -16,7 +16,7 @@
             text-align: center;
         }
 
-        td, th {
+        td, th, tr {
            border: 1px solid #dddddd;
            text-align: center;
         }
@@ -26,13 +26,14 @@
            border-collapse: collapse;
         }
     </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <body>
         <h1>Results</h1>
-        <table>
+        <table class="table table-hover">
             <tr>
-                <th><b>First Name</b></th>
-                <th><b>Last Name</b></th>
-                <th><b>Login</b></th>
+                <th scope="col"><b>First Name</b></th>
+                <th scope="col"><b>Last Name</b></th>
+                <th scope="col"><b>Username</b></th>
             </tr>
             <c:forEach var="i" begin="0" end="${Size-1}" step="3" >
                 <tr> 
@@ -43,5 +44,13 @@
                 </tr>
             </c:forEach>
         </table>
+        <div>
+        <a href="/Project/index.jsp">
+                    <input class="btn btn-primary" value="Add more">
+        </a>
+        <a href="/Project/search.jsp">
+                    <input class="btn btn-primary" value="Search User">
+        </a>
+        </div>
     </body>
 </html>
