@@ -37,11 +37,9 @@
         <center>
             <h1>Input new user(s)</h1>
             <form action="http://localhost:8080/Project/addServlet" method="post">
-<<<<<<< HEAD
-                <table>
-=======
+
                 <table class="table table-hover">
->>>>>>> Design Bootstrap V1 et navigation
+
                     <tr>
                         <th>First name</th>
                         <th>Last name</th>
