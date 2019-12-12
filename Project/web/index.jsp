@@ -12,21 +12,12 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>User Input</title>
     </head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <style>
-        td, th, tr {
-            border: 1px solid #dddddd;
-            text-align: center;
-          }
-        table {
-           font-family: arial, sans-serif;
-           border-collapse: collapse;
-         }
-         
          .deleteButton {
             cursor: pointer;	
          }
     </style>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script>
         function deleteLine(lineNumber)
         {
@@ -34,37 +25,40 @@
         }
     </script>
     <body>
-        <center>
-            <h1>Input new user(s)</h1>
-            <form action="http://localhost:8080/Project/addServlet" method="post">
-
-                <table class="table table-hover">
-
-                    <tr>
-                        <th>First name</th>
-                        <th>Last name</th>
-                        <th>Username</th>
-                        <th>Delete this line</th>
-                    </tr>
-                    <c:forEach var="i" begin="1" end="4" step="1">
-                        <tr id=line${i}>
-                            <td><input type="text" name="firstName${i}" placeholder="First name"></td>
-                            <td><input type="text" name="lastName${i}" placeholder="Last name"></td>
-                            <td><input type="text" name="userName${i}" placeholder="User name"></td>
-                            <td class="deleteButton" onclick="deleteLine(${i})"><img src="https://cdn3.iconfinder.com/data/icons/simple-files-1/128/No-512.png" width="50px" height="50px"</td>
-                        </tr>
-                    </c:forEach>
-                </table>
-                <br>
-                <input type="submit" class="btn btn-primary" value="Submit">
-                <a href="/Project/search.jsp">
-                    <input class="btn btn-secondary" value="Search User">
-                 </a>
-                <a href="/Project/index.jsp">
-                    <input class="btn btn-secondary" value="Reset Input Table">
-                 </a>
-              
-          </form>
-      </center>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8 text-center">
+                        <h1>Input new user(s)</h1>
+                        <br>
+                        <form action="http://localhost:8080/Project/addServlet" method="post">
+                            <table class="table table-sm table-borderless">
+                                <tr>
+                                    <th>First name</th>
+                                    <th>Last name</th>
+                                    <th>Username</th>
+                                    <th>Delete this line</th>
+                                </tr>
+                                <c:forEach var="i" begin="1" end="4" step="1">
+                                    <tr id=line${i}>
+                                        <td><input type="text" name="firstName${i}" placeholder="First name"></td>
+                                        <td><input type="text" name="lastName${i}" placeholder="Last name"></td>
+                                        <td><input type="text" name="userName${i}" placeholder="User name"></td>
+                                        <td class="deleteButton" onclick="deleteLine(${i})"><img src="https://cdn3.iconfinder.com/data/icons/simple-files-1/128/No-512.png" width="50px" height="50px"</td>
+                                    </tr>
+                                </c:forEach>
+                            </table>
+                            <input type="submit" class="btn btn-success" value="Submit">
+                            <a href="/Project/search.jsp" class="btn btn-dark">
+                                Search User
+                            </a>
+                            <a href="/Project/index.jsp" class="btn btn-danger">
+                               Reset input table
+                            </a>
+                      </form>
+              </div>
+              <div class="col-md-2"></div>
+          </div>
+      </div>
     </body>
 </html>
