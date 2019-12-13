@@ -8,13 +8,21 @@
         <servlet-name>searchServlet</servlet-name>
         <servlet-class>servlets.searchServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>allUsersServlet</servlet-name>
+        <servlet-class>servlets.allUsersServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>addServlet</servlet-name>
-        <url-pattern>/addServlet</url-pattern>
+        <url-pattern>/add</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>searchServlet</servlet-name>
-        <url-pattern>/searchServlet</url-pattern>
+        <url-pattern>/search</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>allUsersServlet</servlet-name>
+        <url-pattern>/allUsers</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

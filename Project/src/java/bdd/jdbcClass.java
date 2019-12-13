@@ -74,8 +74,8 @@ public class jdbcClass
     private ArrayList<String> ResNom = new ArrayList<>();
     private ArrayList<String> ResLogin = new ArrayList<>();
     private ArrayList<String> Res = new ArrayList<>();
-    public ArrayList<String> searchUser(HttpServletRequest request, String search) {
-        
+    public ArrayList<String> searchUser(HttpServletRequest request, String search) 
+    {
         try 
         {
             Class.forName("com.mysql.jdbc.Driver");
@@ -92,14 +92,12 @@ public class jdbcClass
         Connection connexion = null;
         Statement statement = null;
         
-       
-        
         try 
         {
             System.out.println("yo");
             connexion = DriverManager.getConnection(url, utilisateur, motDePasse);
             statement = connexion.createStatement();
-            resultat=statement.executeQuery("SELECT * FROM userlist WHERE (FName LIKE '"+search+"' OR LName LIKE '"+search+"' OR Login LIKE '"+search+"')");
+            resultat=statement.executeQuery("SELECT * FROM userlist WHERE (FName LIKE '%"+search+"%' OR LName LIKE '%"+search+"%' OR Login LIKE '%"+search+"%')");
             System.out.println("Requête \"SELECT * FROM userlist WHERE '"+search+"'");
             
 
@@ -122,6 +120,70 @@ public class jdbcClass
             //Res.add(ResLogin);
         }
             
+        } 
+        catch (SQLException e) 
+        {
+            System.out.println("Erreur lors de la connexion : <br/>"
+                    + e.getMessage());
+        } 
+        finally 
+        {
+            if (statement != null) 
+            {
+                try 
+                {
+                    statement.close();
+                } 
+                catch (SQLException ignore){}
+            }
+            if (connexion != null) 
+            {
+                try 
+                {
+                    connexion.close();
+                } 
+                catch (SQLException ignore) {}
+            }
+        }
+        return Res;
+    }
+    
+    public ArrayList<String> getAllUsers(HttpServletRequest request) 
+    {
+        try 
+        {
+            Class.forName("com.mysql.jdbc.Driver");
+        } 
+        catch (ClassNotFoundException e) 
+        {
+            System.out.println("Erreur lors du chargement : le driver n'a pas été trouvé dans le classpath ! <br/>"
+                    + e.getMessage());
+        }
+        ResultSet resultat;
+        String url = "jdbc:mysql://localhost/jeeproject";
+        String utilisateur = "root";
+        String motDePasse = "";
+        Connection connexion = null;
+        Statement statement = null;
+        
+        try 
+        {
+            connexion = DriverManager.getConnection(url, utilisateur, motDePasse);
+            statement = connexion.createStatement();
+            resultat=statement.executeQuery("SELECT * FROM userlist");
+
+            ResultSetMetaData rsmd = resultat.getMetaData();
+            int columnsNumber = rsmd.getColumnCount();
+
+            while ( resultat.next() ) 
+            {
+                for (int i = 1; i <= columnsNumber; i+=4) 
+                {  
+                    Res.add(resultat.getString(i+1));
+                    Res.add(resultat.getString(i+2)); 
+                    Res.add(resultat.getString(i+3)); 
+                }
+            }
         } 
         catch (SQLException e) 
         {

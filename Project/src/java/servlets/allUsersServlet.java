@@ -8,18 +8,17 @@ package servlets;
 import bdd.jdbcClass;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.ServletException;
 import java.util.ArrayList;
-import java.util.List;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author efrouin.ing2021
+ * @author klecomte.ir2021
  */
-public class searchServlet extends HttpServlet {
+public class allUsersServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,16 +32,13 @@ public class searchServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
         jdbcClass bdd = new jdbcClass();
                
-        String search = request.getParameter("search");
-        
-        ArrayList<String> RFC = bdd.searchUser(request, search);
+        ArrayList<String> RFC = bdd.getAllUsers(request);
         
         request.setAttribute("Result",RFC);
-        request.setAttribute("Size",(RFC.size()));   
-        request.setAttribute("yes",true);
+        request.setAttribute("Size",(RFC.size()));
+        request.setAttribute("yes",false);
         request.getRequestDispatcher("result.jsp").forward(request, response);
     }
 

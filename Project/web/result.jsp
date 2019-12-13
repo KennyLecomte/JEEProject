@@ -9,48 +9,51 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Results</title>
+        <title>Search for users</title>
     </head>
-    <style> 
-        div, h1 {
-            text-align: center;
-        }
-
-        td, th, tr {
-           border: 1px solid #dddddd;
-           text-align: center;
-        }
-          
-        table {
-           font-family: arial, sans-serif;
-           border-collapse: collapse;
-        }
-    </style>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <body>
-        <h1>Results</h1>
-        <table class="table table-hover">
-            <tr>
-                <th scope="col"><b>First Name</b></th>
-                <th scope="col"><b>Last Name</b></th>
-                <th scope="col"><b>Username</b></th>
-            </tr>
-            <c:forEach var="i" begin="0" end="${Size-1}" step="3" >
-                <tr> 
+    <jsp:include page="navbar.jsp" />
+        <div class="container text-center">
+            <c:if test="${yes}">
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <br>
+                        <h1>Search for users</h1>
+                        <br>
+                        <form action="/Project/search" method="POST">
+                            <div class="row">
+                                <div class="col-md-8 text-right">
+                                    <input type="text" name="search" placeholder="First name, last name or username" class="form-control">
+                                </div>
+                                <input type="submit" class="col-md-3 btn btn-primary" name="searchbtn"  class="btn btn-primary" value="Search">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </c:if>
+            <br><br>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-9">
+                    <table class="table table-hover">
+                        <tr>
+                            <th scope="col"><b>First Name</b></th>
+                            <th scope="col"><b>Last Name</b></th>
+                            <th scope="col"><b>Username</b></th>
+                        </tr>
+                        <c:forEach var="i" begin="0" end="${Size-1}" step="3" >
+                            <tr> 
 
-                        <td><c:out value="${Result.get(i)}" /></td>
-                        <td><c:out value="${Result.get(i+1)}" /></td>
-                        <td><c:out value="${Result.get(i+2)}" /></td>    
-                </tr>
-            </c:forEach>
-        </table>
-        <div>
-        <a href="/Project/index.jsp">
-                    <input class="btn btn-primary" value="Add more">
-        </a>
-        <a href="/Project/search.jsp">
-                    <input class="btn btn-primary" value="Search User">
-        </a>
+                                    <td><c:out value="${Result.get(i)}" /></td>
+                                    <td><c:out value="${Result.get(i+1)}" /></td>
+                                    <td><c:out value="${Result.get(i+2)}" /></td>    
+                            </tr>
+                        </c:forEach>
+                    </table>
+                </div>
+            </div>
         </div>
     </body>
 </html>

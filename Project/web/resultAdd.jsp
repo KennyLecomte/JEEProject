@@ -9,47 +9,34 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Added User List</title>
+        <title>Input new user(s)</title>
     </head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <style> 
-        div, h1 {
-            text-align: center;
-        }
-
-        td, th, a, tr {
-           border: 1px solid #dddddd;
-           text-align: center;
-        }
-          
-        table {
-           font-family: arial, sans-serif;
-           border-collapse: collapse;
-        }
-    </style>
     <body>
-        <h1>Added User List</h1>
-        <table class="table table-hover">
-            <tr>
-                <th><b>First Name</b></th>
-                <th><b>Last Name</b></th>
-                <th><b>Username</b></th>
-            </tr>
-            <c:forEach var="i" begin="0" end="${(size*3)-1}" step="3" >
-                <tr> 
-                    <td><c:out value="${data.get(i)}" /></td>
-                    <td><c:out value="${data.get(i+1)}" /></td>
-                    <td><c:out value="${data.get(i+2)}" /></td>
-                </tr>
-            </c:forEach>
-        </table>
-        <div>
-        <a href="/Project/index.jsp">
-                    <input class="btn btn-primary" value="Add more">
-        </a>
-        <a href="/Project/search.jsp">
-                    <input class="btn btn-primary" value="Search User">
-        </a>
+        <jsp:include page="navbar.jsp" />
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-9">
+                    <br>
+                    <h1>These users were added to the database : </h1>
+                    <br>
+                    <table class="table table-hover ">
+                        <tr>
+                            <th><b>First Name</b></th>
+                            <th><b>Last Name</b></th>
+                            <th><b>Username</b></th>
+                        </tr>
+                        <c:forEach var="i" begin="0" end="${(size*3)-1}" step="3" >
+                            <tr> 
+                                <td><c:out value="${data.get(i)}" /></td>
+                                <td><c:out value="${data.get(i+1)}" /></td>
+                                <td><c:out value="${data.get(i+2)}" /></td>
+                            </tr>
+                        </c:forEach>
+                    </table>
+                </div>
+            </div>
         </div>
     </body>
 </html>
