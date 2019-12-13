@@ -47,6 +47,19 @@ COMMIT;
 --
 ALTER TABLE `userlist`
   MODIFY `ID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  
+INSERT INTO `userlist` (`ID`, `FName`, `LName`, `Login`) VALUES
+(1, 'Aziz', 'DAOUAS', 'adaouas'),
+(2, 'Jochen', 'LEMMENS', 'jlemmens'),
+(3, 'Evan', 'FROUIN', 'efrouin'),
+(4, 'Kenny', 'LECOMTE', 'klecomte'),
+(5, 'Theo', 'FIEBER', 'tfieber'),
+(6, 'Simon', 'DELAJOUX', 'sdelajoux'),
+(7, 'Alexandre', 'MARCQ', 'amarcq'),
+(8, 'Thibaut', 'CATIGNOL', 'tcatignol'),
+(9, 'Mathieu', 'DRAPEAU', 'mdrapeau'),
+(10, 'Simon', 'NICOLAS', 'snicolas'),
+(11, 'Raphael', 'SEGRETIN', 'rsegretin');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
