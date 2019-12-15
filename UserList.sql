@@ -1,12 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 4.7.9
--- https://www.phpmyadmin.net/
---
--- Hôte : 127.0.0.1:3306
--- Généré le :  ven. 29 nov. 2019 à 09:01
--- Version du serveur :  5.7.21
--- Version de PHP :  5.6.35
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
@@ -42,12 +33,6 @@ CREATE TABLE IF NOT EXISTS `userlist` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='jeeproject';
 COMMIT;
 
---
--- AUTO_INCREMENT pour la table `userlist`
---
-ALTER TABLE `userlist`
-  MODIFY `ID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
-  
 INSERT INTO `userlist` (`ID`, `FName`, `LName`, `Login`) VALUES
 (1, 'Aziz', 'DAOUAS', 'adaouas'),
 (2, 'Jochen', 'LEMMENS', 'jlemmens'),
@@ -61,8 +46,16 @@ INSERT INTO `userlist` (`ID`, `FName`, `LName`, `Login`) VALUES
 (10, 'Simon', 'NICOLAS', 'snicolas'),
 (11, 'Raphael', 'SEGRETIN', 'rsegretin');
 
+--
+-- AUTO_INCREMENT pour la table `userlist`
+--
+ALTER TABLE `userlist`
+  MODIFY `ID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
 
 

@@ -34,26 +34,32 @@
                 </div>
             </c:if>
             <br><br>
-            <div class="row">
-                <div class="col-md-1"></div>
-                <div class="col-md-9">
-                    <table class="table table-hover">
-                        <tr>
-                            <th scope="col"><b>First Name</b></th>
-                            <th scope="col"><b>Last Name</b></th>
-                            <th scope="col"><b>Username</b></th>
-                        </tr>
-                        <c:forEach var="i" begin="0" end="${Size-1}" step="3" >
-                            <tr> 
-
-                                    <td><c:out value="${Result.get(i)}" /></td>
-                                    <td><c:out value="${Result.get(i+1)}" /></td>
-                                    <td><c:out value="${Result.get(i+2)}" /></td>    
+            <c:if test="${Size!=0}">
+                <center><p>Total users count : <c:out value="${numberUsers}"/></p></center>
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <table class="table table-hover">
+                            <tr>
+                                <th scope="col"><b>First Name</b></th>
+                                <th scope="col"><b>Last Name</b></th>
+                                <th scope="col"><b>Username</b></th>
                             </tr>
-                        </c:forEach>
-                    </table>
+                            <c:forEach var="i" begin="0" end="${Size-1}" step="3" >
+                                <tr> 
+
+                                        <td><c:out value="${Result.get(i)}" /></td>
+                                        <td><c:out value="${Result.get(i+1)}" /></td>
+                                        <td><c:out value="${Result.get(i+2)}" /></td>    
+                                </tr>
+                            </c:forEach>
+                        </table>
+                    </div>
                 </div>
-            </div>
+            </c:if>
+            <c:if test="${Size==0}">
+                <p>No users were found</p>
+            </c:if>
         </div>
     </body>
 </html>

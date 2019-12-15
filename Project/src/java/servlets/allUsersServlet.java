@@ -8,6 +8,7 @@ package servlets;
 import bdd.jdbcClass;
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.Math.round;
 import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -38,6 +39,10 @@ public class allUsersServlet extends HttpServlet {
         
         request.setAttribute("Result",RFC);
         request.setAttribute("Size",(RFC.size()));
+        if(RFC.size()!=0)
+        {
+            request.setAttribute("numberUsers",(round(RFC.size()/3)));
+        }
         request.setAttribute("yes",false);
         request.getRequestDispatcher("result.jsp").forward(request, response);
     }

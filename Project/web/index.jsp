@@ -21,7 +21,10 @@
     <script>
         function deleteLine(lineNumber)
         {
-            document.getElementById("line"+lineNumber).style.display="none"
+            document.getElementById("firstName"+lineNumber).required=false;
+            document.getElementById("lastName"+lineNumber).required=false;
+            document.getElementById("userName"+lineNumber).required=false;
+            document.getElementById("line"+lineNumber).style.display="none";
         }
     </script>
     <body>
@@ -43,9 +46,9 @@
                             </tr>
                             <c:forEach var="i" begin="1" end="4" step="1">
                                 <tr id=line${i}>
-                                    <td><input type="text" name="firstName${i}" placeholder="First name" class="form-control"></td>
-                                    <td><input type="text" name="lastName${i}" placeholder="Last name" class="form-control"></td>
-                                    <td><input type="text" name="userName${i}" placeholder="Username" class="form-control"></td>
+                                    <td><input type="text" name="firstName${i}" id="firstName${i}" placeholder="First name" class="form-control" required></td>
+                                    <td><input type="text" name="lastName${i}" id="lastName${i}" placeholder="Last name" class="form-control" required></td>
+                                    <td><input type="text" name="userName${i}" id="userName${i}" placeholder="Username" class="form-control" required></td>
                                     <td class="deleteButton" onclick="deleteLine(${i})"><img src="https://cdn3.iconfinder.com/data/icons/simple-files-1/128/No-512.png" width="50px" height="50px"</td>
                                 </tr>
                             </c:forEach>

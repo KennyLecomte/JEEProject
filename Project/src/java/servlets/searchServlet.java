@@ -8,6 +8,7 @@ package servlets;
 import bdd.jdbcClass;
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.Math.round;
 import javax.servlet.ServletException;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,6 +43,10 @@ public class searchServlet extends HttpServlet {
         
         request.setAttribute("Result",RFC);
         request.setAttribute("Size",(RFC.size()));   
+        if(RFC.size()!=0)
+        {
+            request.setAttribute("numberUsers",(round(RFC.size()/3)));
+        }
         request.setAttribute("yes",true);
         request.getRequestDispatcher("result.jsp").forward(request, response);
     }
