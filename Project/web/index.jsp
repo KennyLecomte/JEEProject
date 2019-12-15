@@ -19,12 +19,17 @@
          }
     </style>
     <script>
+        var numberOfLines=4;
         function deleteLine(lineNumber)
         {
-            document.getElementById("firstName"+lineNumber).required=false;
-            document.getElementById("lastName"+lineNumber).required=false;
-            document.getElementById("userName"+lineNumber).required=false;
-            document.getElementById("line"+lineNumber).style.display="none";
+            if(numberOfLines!=1)
+            {
+                document.getElementById("firstName"+lineNumber).required=false;
+                document.getElementById("lastName"+lineNumber).required=false;
+                document.getElementById("userName"+lineNumber).required=false;
+                document.getElementById("line"+lineNumber).style.display="none";
+                numberOfLines--;
+            }
         }
     </script>
     <body>
